@@ -91,7 +91,7 @@ function handleNoClick() {
     noClickCount++
 
     // Cycle through guilt-trip messages
-    const msgIndex = Math.min(noClickCount - 1, noMessages.length - 1)
+    const msgIndex = Math.min(noClickCount, noMessages.length - 1)
     noBtn.textContent = noMessages[msgIndex]
 
     // Grow the Yes button bigger each time
@@ -111,7 +111,7 @@ function handleNoClick() {
     swapGif(gifStages[gifIndex])
 
     // Runaway starts at click 5
-    if (noClickCount >= 7 && !runawayEnabled) 
+    if (noClickCount >= 5 && !runawayEnabled) 
         enableRunaway()
         runawayEnabled = true
     }
