@@ -102,13 +102,9 @@ function handleNoClick() {
     yesBtn.style.padding = `${padY}px ${padX}px`
 
     // Shrink No button to contrast
-   if (noClickCount < noMessages.length) {
-        noClickCount++
-    }
-
-    const msgIndex = noClickCount - 1
-    noBtn.textContent = noMessages[msgIndex]
-    }
+   if (noClickCount >= 2) {
+        const noSize = parseFloat(window.getComputedStyle(noBtn).fontSize)
+        noBtn.style.fontSize = `${Math.max(noSize * 0.85, 10)}px`
 
     // Swap cat GIF through stages
     const gifIndex = Math.min(noClickCount, gifStages.length - 1)
