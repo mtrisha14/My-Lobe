@@ -10,13 +10,15 @@ const gifStages = [
 ]
 
 const noMessages = [
-   "No",
+    "No",
     "Are you positive? 🤔",
-    "If it rains 🌧️, will you still come out with me?",
-    "If it rains AND there's traffic 🚗… still coming?",
-    "Pretty pleaseee... 🥺",
-    "If you say no… should I cry dramatically or just kidnap you anyway? 😌",
-    "Please??? 💔 You can't catch me anyway 😜",
+    "Pookie please... 🥺",
+    "If you say no, I will be really sad...",
+    "I will be very sad... 😢",
+    "Please??? 💔",
+    "Don't do this to me...",
+    "Last chance! 😭",
+    "You can't catch me anyway 😜"
 ]
 
 const yesTeasePokes = [
