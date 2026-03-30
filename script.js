@@ -7,6 +7,7 @@ const gifStages = [
     "https://media.tenor.com/CivArbX7NzQAAAAj/somsom1012.gif",             // 5 devastated
     "https://media.tenor.com/5_tv1HquZlcAAAAj/chiikawa.gif",               // 6 very devastated
     "https://media1.tenor.com/m/uDugCXK4vI4AAAAC/chiikawa-hachiware.gif"  // 7 crying runaway
+    "https://tenor.com/view/bubu-bubu-dudu-bear-bubbu-tonibear-gif-10821574380313044805"
 ]
 
 const noMessages = [
@@ -111,7 +112,7 @@ function handleNoClick() {
     swapGif(gifStages[gifIndex])
 
     // Runaway starts at click 5
-    if (noClickCount >= 5 && !runawayEnabled) {
+    if (noClickCount >= 9 && !runawayEnabled) {
         enableRunaway()
         runawayEnabled = true
     }
