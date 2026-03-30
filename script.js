@@ -6,8 +6,8 @@ const gifStages = [
     "https://media1.tenor.com/m/WGfra-Y_Ke0AAAAd/chiikawa-sad.gif",       // 4 sadder
     "https://media.tenor.com/CivArbX7NzQAAAAj/somsom1012.gif",             // 5 devastated
     "https://media.tenor.com/5_tv1HquZlcAAAAj/chiikawa.gif",               // 6 very devastated
-    "https://media1.tenor.com/m/uDugCXK4vI4AAAAC/chiikawa-hachiware.gif"  // 7 crying runaway
-    "https://tenor.com/view/bubu-bubu-dudu-bear-bubbu-tonibear-gif-10821574380313044805"
+    "https://media1.tenor.com/m/uDugCXK4vI4AAAAC/chiikawa-hachiware.gif",  // 7 crying runaway
+    "https://media.tenor.com/li30kFEG50UAAAAj/bubu-bubu-dudu.gif"
 ]
 
 const noMessages = [
@@ -91,7 +91,7 @@ function handleNoClick() {
     noClickCount++
 
     // Cycle through guilt-trip messages
-    const msgIndex = Math.min(noClickCount, noMessages.length - 1)
+    const msgIndex = Math.min(noClickCount - 1, noMessages.length - 1)
     noBtn.textContent = noMessages[msgIndex]
 
     // Grow the Yes button bigger each time
@@ -102,9 +102,12 @@ function handleNoClick() {
     yesBtn.style.padding = `${padY}px ${padX}px`
 
     // Shrink No button to contrast
-    if (noClickCount >= 2) {
-        const noSize = parseFloat(window.getComputedStyle(noBtn).fontSize)
-        noBtn.style.fontSize = `${Math.max(noSize * 0.85, 10)}px`
+   if (noClickCount < noMessages.length) {
+        noClickCount++
+    }
+
+    const msgIndex = noClickCount - 1
+    noBtn.textContent = noMessages[msgIndex]
     }
 
     // Swap cat GIF through stages
@@ -112,7 +115,7 @@ function handleNoClick() {
     swapGif(gifStages[gifIndex])
 
     // Runaway starts at click 5
-    if (noClickCount >= 9 && !runawayEnabled) {
+    if (noClickCount >= noMessages.length - 2 && !runawayEnabled) {
         enableRunaway()
         runawayEnabled = true
     }
