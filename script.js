@@ -6,22 +6,17 @@ const gifStages = [
     "https://media1.tenor.com/m/WGfra-Y_Ke0AAAAd/chiikawa-sad.gif",       // 4 sadder
     "https://media.tenor.com/CivArbX7NzQAAAAj/somsom1012.gif",             // 5 devastated
     "https://media.tenor.com/5_tv1HquZlcAAAAj/chiikawa.gif",               // 6 very devastated
-    "https://media1.tenor.com/m/uDugCXK4vI4AAAAC/chiikawa-hachiware.gif",  // 7 crying runaway
-    "https://media.tenor.com/li30kFEG50UAAAAj/bubu-bubu-dudu.gif"
+    "https://media1.tenor.com/m/uDugCXK4vI4AAAAC/chiikawa-hachiware.gif"  // 7 crying runaway
 ]
 
 const noMessages = [
-    "No",
+   "No",
     "Are you positive? 🤔",
     "If it rains 🌧️, will you still come out with me?",
     "If it rains AND there's traffic 🚗… still coming?",
     "Pretty pleaseee... 🥺",
-    "If you say no, I will be really sad...",
-    "Please??? 💔",
-    "Can you re-think on it...",
-    "Last chance! 😭",
     "If you say no… should I cry dramatically or just kidnap you anyway? 😌",
-    "You can't catch me anyway 😜"
+    "Please??? 💔 You can't catch me anyway 😜",
 ]
 
 const yesTeasePokes = [
@@ -102,16 +97,17 @@ function handleNoClick() {
     yesBtn.style.padding = `${padY}px ${padX}px`
 
     // Shrink No button to contrast
-   if (noClickCount >= 2) {
+    if (noClickCount >= 2) {
         const noSize = parseFloat(window.getComputedStyle(noBtn).fontSize)
         noBtn.style.fontSize = `${Math.max(noSize * 0.85, 10)}px`
+    }
 
     // Swap cat GIF through stages
     const gifIndex = Math.min(noClickCount, gifStages.length - 1)
     swapGif(gifStages[gifIndex])
 
     // Runaway starts at click 5
-    if (noClickCount >= 5 && !runawayEnabled) 
+    if (noClickCount >= 5 && !runawayEnabled) {
         enableRunaway()
         runawayEnabled = true
     }
